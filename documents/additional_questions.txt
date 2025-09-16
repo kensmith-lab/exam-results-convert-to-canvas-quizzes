@@ -1,0 +1,25 @@
+Question 1: What is the largest planet in our solar system?
+A) Earth
+B) Jupiter *
+C) Mars
+D) Saturn
+
+Question 2: Which of the following are prime numbers? (Select all that apply)
+A) 2 *
+B) 4
+C) 7 *
+D) 9
+E) 11 *
+
+Question 3: What is the chemical symbol for gold?
+A) Go
+B) Gd
+C) Au *
+D) Ag
+
+Question 4: Which programming concepts are fundamental in object-oriented programming?
+A) Encapsulation *
+B) Variables
+C) Inheritance *
+D) Polymorphism *
+E) Loops
