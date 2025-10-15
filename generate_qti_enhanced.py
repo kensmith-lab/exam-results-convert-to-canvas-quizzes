@@ -17,6 +17,14 @@ import xml.etree.ElementTree as ET
 from datetime import datetime
 from pathlib import Path
 from typing import List, Dict, Any, Tuple, Optional
+
+try:
+    from bs4 import BeautifulSoup
+    import PyPDF2
+    from docx import Document
+    import pandas as pd
+except ImportError:
+    pass
 import glob
 
 # Import required libraries with auto-install
@@ -81,8 +89,8 @@ class EnhancedDocumentParser:
     @staticmethod
     def process_folder(folder_path: str) -> List[Question]:
         """Process entire folder structure recursively"""
-        folder_path = Path(folder_path)
-        if not folder_path.exists():
+        folder_path_obj = Path(folder_path)
+        if not folder_path_obj.exists():
             print(f"❌ Folder not found: {folder_path}")
             return []
         
@@ -94,10 +102,10 @@ class EnhancedDocumentParser:
         # Find all supported files recursively
         for ext in supported_extensions:
             pattern = f"**/*{ext}"
-            files = list(folder_path.glob(pattern))
+            files = list(folder_path_obj.glob(pattern))
             
             for file_path in files:
-                print(f"📄 Processing: {file_path.relative_to(folder_path)}")
+                print(f"📄 Processing: {file_path.relative_to(folder_path_obj)}")
                 
                 try:
                     questions = EnhancedDocumentParser.parse_file(file_path)

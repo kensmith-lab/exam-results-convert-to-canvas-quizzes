@@ -13,7 +13,7 @@ import zipfile
 import xml.etree.ElementTree as ET
 from datetime import datetime
 from pathlib import Path
-from typing import List, Dict, Any, Tuple
+from typing import List, Dict, Any, Tuple, Optional
 
 try:
     from bs4 import BeautifulSoup
@@ -118,7 +118,7 @@ class DocumentParser:
         return has_question_marker or has_choices
     
     @staticmethod
-    def _extract_question_from_text(text: str) -> Question:
+    def _extract_question_from_text(text: str) -> Optional[Question]:
         """Extract question from text block"""
         lines = [line.strip() for line in text.split('\n') if line.strip()]
         
@@ -167,7 +167,7 @@ class DocumentParser:
         return Question(question_text, question_type, choices, correct_answers)
     
     @staticmethod
-    def _extract_question_from_block(text: str) -> Question:
+    def _extract_question_from_block(text: str) -> Optional[Question]:
         """Extract question from HTML block"""
         return DocumentParser._extract_question_from_text(text)
 
