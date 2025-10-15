@@ -205,8 +205,9 @@ class CanvasQTIGenerator:
                         for line in lines:
                             if line.strip():
                                 print(f"  {line}")
-                        if len(content.split('\n')) > 15:
-                            print(f"  ... ({len(content.split('\n')) - 15} more lines)")
+                        total_lines = len(content.split('\n'))
+                        if total_lines > 15:
+                            print(f"  ... ({total_lines - 15} more lines)")
         except Exception as e:
             self.logger.error(f"Error inspecting file: {e}")
     
